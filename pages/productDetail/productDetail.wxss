@@ -1,0 +1,5 @@
+/* productDetail.wxss */
+.xibin-theme{
+  font-family: "微软雅黑";
+  color:#003057;
+}

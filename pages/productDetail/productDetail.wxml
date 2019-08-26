@@ -1,0 +1,60 @@
+<!--productDetail.wxml-->
+<view class="page">
+  <view class="page__bd">
+      <swiper indicator-dots="true"
+        autoplay="false"  duration="500" style="height:{{picHeight}}" >
+        <!-- <block wx:for="{{imgsZip}}">
+          <swiper-item>
+            <image src="{{imgSrc}}{{item.fittingSkuPicUrl}}" bindtap="onImageTap" model="aspectFit" style="width:{{windowWidth}}px;height:700rpx"/>
+          </swiper-item>
+        </block> -->
+        <view wx:if="{{true}}">
+        <block wx:for="{{imgs}}">
+          <swiper-item>
+             <!-- <image src="{{imgSrc}}{{item.fittingSkuPicUrl}}" bindtap="onImageTap" model="aspectFit" style="width:{{windowWidth}}px;height:700rpx"/>  -->
+             <image src="{{imgSrc}}{{item.fittingSkuPicUrl}}" bindtap="onImageTap" model="aspectFit" style="width:{{windowWidth}}px;height:{{picHeight}}"/> 
+          </swiper-item>
+        </block>
+        </view>
+      </swiper>
+      <view class="weui-form-preview" >
+            
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__label">产品类别</view>
+                
+                <view class="weui-form-preview__value_in-hd">  {{sku.fittingTypeName}} <button wx:if="{{sku.fittingSkuStatus === 'NEW'}}"  type="primary" size="mini">新品</button></view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">产品</view>
+                    <view class="weui-form-preview__value">{{sku.fittingSkuName}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">编码</view>
+                    <view class="weui-form-preview__value">{{sku.fittingSkuCode}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">车型</view>
+                    <view class="weui-form-preview__value">{{sku.modelCode}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">材质</view>
+                    <view class="weui-form-preview__value">{{sku.materialquality}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">备注</view>
+                    <view class="weui-form-preview__value">{{sku.fittingSkuRemark}}</view>
+                </view>
+                <!-- <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">参考价格</view>
+                    <view class="weui-form-preview__value">{{sku.price}}</view>
+                </view> -->
+            </view>
+            <view class="weui-form-preview__ft">
+                <button  open-type="share"  class="xibin-theme"  bindtap="primary">转发</button>
+                <navigator class="weui-form-preview__btn weui-form-preview__btn_primary xibin-theme"  hover-class="weui-form-preview__btn_active" bindtap="back">返回产品分类</navigator>
+            </view>
+      </view> 
+      
+   </view>
+</view>

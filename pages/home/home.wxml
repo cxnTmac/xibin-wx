@@ -1,0 +1,66 @@
+<!--home.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <image class="LOGO" src="{{logoSrc}}" style="padding:0px;"></image>
+    <view class="weui-grids" style="background:#ffffff;border:0px;">
+            <block wx:for="{{grids}}" wx:key="*this">
+                <navigator url="" class="weui-grid" hover-class="weui-grid_active" id="{{index}}" bindtap="iconTap" style="border:0px;">
+                    <image class="weui-grid__icon" src="{{item.icon}}" />
+                    <view class="weui-grid__label">{{item.title}}</view>
+                </navigator>
+            </block>
+    </view>
+    <view class="weui-article" wx:if="{{showPage1}}">
+      <view class="weui-cells__title" >主导产品</view>
+      <view class="weui-article__section">
+          <view class="weui-article__p">
+              主肖修理包、轮胎螺丝、传动轴支架总成、高强度螺栓、横（直）拉杆（球头）、钢板肖、钢板吊耳、涨紧轮等。
+          </view>
+          <view class="weui-article__p">
+              同时可根据客户提供的样品或图纸进行加工生产。
+          </view>
+      </view>
+      <view class="weui-cells__title">主营车型</view>
+      <view class="weui-article__section">
+          <view class="weui-article__p">
+              福田、南骏、王牌、一汽红塔、金杯货车、长安星豹、黑豹、微豹、金鹿、解放、跃进、北汽、东风、江淮、五十铃、客车、重卡等。
+          </view>
+      </view>
+    </view>
+    <view class="weui-article" wx:if="{{showPage2}}">
+    <view class="weui-cells__title">公司简介</view>
+      <view class="weui-article__section">
+          <view class="weui-article__p">
+              福建省晋江市西滨精工汽车零配件有限公司位于历史文化名城、古“海上丝绸之路”起点、著名侨乡——晋江；地理位置优越，陆、海、空交通网四通八达，海内外商家云聚，经济贸易相当活跃。</view>
+          <view class="weui-article__p">
+          公司成立于1986年，从事汽车零部件生产及经营，已有二十多年的历史，并积累了丰富的生产经验。我司专业从事轻卡、大巴、中巴、农用工程车配件的生产和销售。主导产品有：主肖修理包、轮胎螺丝、传动轴支架总成、高强度螺栓、横（直）球头、横（直）拉杆、球头修理包等。
+    面对日益激烈的市场竞争和我国加入WTO带来的机遇和挑战，西滨精工人在今后的旅程中将继续以“以质量求生存，以诚信求发展”的精神，不断探索，不断创新，精益求精，铸造“西滨精工”品牌，为广大新老客户提供一流的产品和优质的服务。在此欢迎广大新老客户来电、来函订购，来人参观访问指导，共同携手共创汽配行业的辉煌未来。
+          </view>
+          <view class="weui-article__p">
+              <image class="weui-article__img" src="../../assets/images/company.jpg" mode="aspectFit" style="height: 180px" />
+          </view>
+    </view>
+  </view>
+    <view class="weui-article" wx:if="{{showPage3}}">
+      <view class="weui-cells__title" >联系我们</view>
+      <view class="weui-article__section">
+          <view class="weui-article__p">
+              QQ：454119767
+          </view>
+          <view class="weui-article__p">
+              电话：0595-85129500  
+          </view>
+          <view class="weui-article__p">
+              微信：15305000658
+          </view>
+          <view class="weui-article__p">
+              <button type="primary"  bindtap="addToPhone" hover-class="other-button-hover">添加联系方式到通讯录</button>
+          </view>
+          <view class="weui-article__p">
+              <image class="weui-article__img" src="../../assets/images/xibin-2wx.jpg" mode="aspectFit" width="750rpx"/>
+          </view>
+      </view>
+    </view>
+  </view>
+  
+</view>

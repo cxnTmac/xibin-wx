@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/product/product",
+    "pages/productDetail/productDetail",
+    "pages/new/new",
+    "pages/newHome"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "西滨精工",
+    "navigationBarBackgroundColor": "#003057",
+    "backgroundColor": "#f8f8f8"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#004DA1",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "assets/icons/home-fill.png",
+        "iconPath": "assets/icons/home.png",
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "assets/icons/search-fill.png",
+        "iconPath": "assets/icons/search.png",
+        "pagePath": "pages/product/product",
+        "text": "产品"
+      },
+      {
+        "selectedIconPath": "assets/icons/new-fill.png",
+        "iconPath": "assets/icons/new.png",
+        "pagePath": "pages/new/new",
+        "text": "新品"
+      },
+      {
+        "selectedIconPath": "assets/icons/new-fill.png",
+        "iconPath": "assets/icons/new.png",
+        "pagePath": "pages/newHome",
+        "text": "新页面"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,81 @@
+<!--pages/newHome.wxml-->
+<div class="container">
+<van-search value="{{ searchInputValue }}" placeholder="请输入搜索关键词" bind:change="onSearchChange" bind:search="onSearch" bind:cancel="onCancelSearch"/>
+<van-popup
+  show="{{ searchPopShow }}"
+  position="bottom"
+  overlay="{{ true }}"
+  bind:close="onSearchPopClose"
+>
+  <van-cell-group>
+  <view wx:for="{{searchResults}}" wx:for-index="idx" wx:for-item="model" wx:key="modelCode">
+    <van-cell
+      title="{{model.modelCode}}"
+      value="车型"
+      bind:click="searchResultsClick"
+    />
+   </view>
+  </van-cell-group>
+</van-popup>
+<van-row>
+    <van-col span="6">
+    <scroll-view
+        scroll-y
+        style="height: {{scrollHeight}};"
+        bindscrolltoupper="upper"
+        bindscrolltolower="lower"
+        bindscroll="scroll"
+        scroll-with-animation="true"
+        scroll-top="1px"
+      >
+        <van-badge-group :active="{{currentTypeIndex}}" bind:change="onChangeType">
+                <view wx:for="{{types}}" wx:for-index="idx" wx:for-item="itemName" wx:key="itemKey">
+                  <van-badge title="{{itemName.fittingTypeName}}" />
+                </view>
+                </van-badge-group>
+      </scroll-view>
+
+    </van-col>
+    <van-col span="18">
+    <scroll-view
+                    scroll-y
+                    style="height: {{scrollHeight}};"
+                    bindscrolltolower="lower"
+                    bindscroll="scroll"
+                    scroll-with-animation="true"
+                    scroll-top="1px"
+                  >
+        <view wx:for="{{skus}}" wx:for-index="idx" wx:for-item="sku" wx:key="skuCode">
+            <view wx:if="{{sku.fittingSkuStatus == 'NORMAL'}}">
+                <van-card
+                              style="background-color:'#fff'"
+                              desc="{{sku.fittingSkuCode}}"
+                              title="{{sku.fittingSkuName}}"
+                              lazy-load="true"
+                              thumb="{{imgSrc}}{{sku.fittingSkuPicUrl}}"
+                              bindtap="tapSku"
+                            >
+                              <view slot="tags">
+                                <van-tag plain type="danger">{{sku.modelCode}}</van-tag>
+                              </view>
+                </van-card>
+            </view>
+            <view wx:if="{{sku.fittingSkuStatus == 'NEW'}}">
+                <van-card
+                  tag="新品"
+                  desc="{{sku.fittingSkuCode}}"
+                  title="{{sku.fittingSkuName}}"
+                  lazy-load="true"
+                  thumb="{{imgSrc}}{{sku.fittingSkuPicUrl}}"
+                  bindtap="tapSku"
+                >
+                  <view slot="tags">
+                    <van-tag plain type="danger">{{sku.modelCode}}</van-tag>
+                  </view>
+                </van-card>
+             </view>
+        </view>
+    </scroll-view>
+    </van-col>
+</van-row>
+</div>

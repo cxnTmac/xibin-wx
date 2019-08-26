@@ -1,0 +1,80 @@
+<!--product.wxml-->
+<include src="../wxSearchView/wxSearchView.wxml" />
+<view class="page">
+    <view class="page__bd">
+            
+                   <view class="weui-search-bar">
+                      <view class="weui-search-bar__form">
+                          <view class="weui-search-bar__box">
+                              <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                              <input type="text" class="weui-search-bar__input" bindconfirm="searchConfirm"  placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                              <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                                  <icon type="clear" size="14"></icon>
+                              </view>
+                          </view>
+                          <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                              <icon class="weui-icon-search" type="search" size="14"></icon>
+                              <view class="weui-search-bar__text">搜索</view>
+                          </label>
+                      </view>
+                    <view class="weui-search-bar__cancel-btn xibin-theme" hidden="{{!inputShowed}}" bindtap="searchConfirm">
+                    搜索
+                    </view>
+                    <view class="weui-search-bar__cancel-btn xibin-theme" hidden="{{!inputShowed}}" bindtap="hideInput">
+                    取消
+                    </view>
+                  </view> 
+
+
+                
+                  <view class="weui-cells searchbar-result" style="margin:0px;display:{{showSearchInner}}" wx:if="{{inputVal.length > 0}}">
+                      <navigator wx:for="{{searchResults}}" url="" class="weui-cell" hover-class="weui-cell_active">
+                          <view class="weui-cell__bd" bindtap="onResultItemClick">
+                              <view id="{{item.modelName}}">车型：{{item.modelName}}</view>
+                          </view>
+                      </navigator>
+                   </view> 
+
+
+                  <view class="weui-flex" style="display:{{showMain}}">
+                    <view style="width:25%">
+                      <scroll-view class="scroll-view_H" scroll-with-animation="true"  style="height:{{scrollHeight}};background:#e5e5e5" scroll-y scroll-into-view="{{toView}}"    scroll-top="{{scrollTop}}"> 
+                        <view class="weui-panel__bd">
+                            <view class="weui-media-box weui-media-box_small-appmsg" >
+                                <view class="weui-cells weui-cells_in-small-appmsg">
+                                    <navigator  wx:for="{{types}}" url="#" class="{{currentType==item.fittingTypeCode?'xibin-ui-cell-active':'xibin-ui-cell'}}">
+                                      <view class="type-view" id="{{item.fittingTypeCode}}" bindtap="tap" >{{item.fittingTypeName}}</view>
+                                    </navigator>
+
+                                </view>
+                            </view>
+                        </view>
+                      </scroll-view> 
+                    </view>
+                    <view class="weui-flex__item" style="background:#ffffff">
+                        <scroll-view class="scroll-view_H" scroll-with-animation="true"  style="height:{{scrollHeight}};" scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll"   scroll-top="{{scrollTop}}"> 
+                        <view class="weui-panel__bd">
+                          <navigator wx:for="{{skus}}" url="../productDetail/productDetail?skuCode={{item.fittingSkuCode}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                              <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                                  <image class="weui-media-box__thumb" src="{{imgSrc}}{{item.fittingSkuPicUrl}}" />
+                              </view>
+                              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                                  <button wx:if="{{item.fittingSkuStatus === 'NEW'}}"  type="primary" size="mini">新品</button>
+                                  <view id="skuname" class="weui-media-box__title">{{item.fittingSkuName}}</view>
+                                  <view class="weui-media-box__desc">{{item.modelCode}}</view>
+                                  <view class="weui-media-box__desc">编码：{{item.fittingSkuCode}}</view>
+                              </view>
+                          </navigator>
+                          
+                      </view>
+                      </scroll-view> 
+                      <!--<view class="weui-panel__ft">
+                          <view class="weui-cell weui-cell_access weui-cell_link">
+                              <view class="weui-cell__bd">查看更多</view>
+                              <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                          </view>
+                      </view>-->
+                    </view>
+                  </view>
+    </view>
+</view>
